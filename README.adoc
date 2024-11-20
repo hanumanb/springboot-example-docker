@@ -1,0 +1,19 @@
+#Build the spring boot application 
+mvn clean install 
+
+#  create Image 
+docker build  -t spring-boot-example-docker .
+
+#To see the iamges 
+docker images 
+REPOSITORY                   TAG       IMAGE ID       CREATED          SIZE
+spring-boot-example-docker   latest    c485961129de   24 seconds ago   348MB
+
+#To run the application 
+docker run -p 8080:8080  spring-boot-example-docker
+
+# Checking the health of application 
+http://localhost:8080/actuator/health
+
+#Hitting a Rest Controller 
+http://localhost:8080/
